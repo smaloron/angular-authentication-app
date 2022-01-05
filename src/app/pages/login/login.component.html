@@ -2,11 +2,13 @@
     <h2 class="mb-2">Authentification</h2>
     <div class="mb-2">
         <label class="form-label">Identifiant</label>
-        <input class="form-control" type="text">
+        <input class="form-control" type="text"
+        [(ngModel)]="userInput.login">
     </div>
     <div class="mb-2">
         <label class="form-label">Mot de passe</label>
-        <input class="form-control" type="password">
+        <input class="form-control" type="password"
+        [(ngModel)]="userInput.password">
     </div>
 
     <button class="btn btn-primary">
