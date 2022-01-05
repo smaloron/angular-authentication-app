@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService, CredentialInterface } from 'src/app/services/authentication.service';
 
 @Component({
@@ -13,16 +14,20 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private security: AuthenticationService) { }
+  isAuthenticated = false;
+  isSubmitted = false;
+
+  constructor(private security: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   validateForm(): void {
-    if (this.security.authenticate(this.userInput)) {
-      console.log('ok');
-    } else {
-      console.log('KO');
+    this.isSubmitted = true;
+    this.isAuthenticated = this.security.authenticate(this.userInput);
+    if (this.isAuthenticated) {
+      this.router.navigate(['/home']);
     }
   }
 

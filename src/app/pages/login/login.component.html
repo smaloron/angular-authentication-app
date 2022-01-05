@@ -1,5 +1,11 @@
 <div class="p-2">
     <h2 class="mb-2">Authentification</h2>
+
+    <div class="alert alert-danger mt-2 mb-2 p-2"
+    *ngIf="isSubmitted && ! isAuthenticated">
+        Les infos de connexion sont incorrectes
+    </div>
+
     <div class="mb-2">
         <label class="form-label">Identifiant</label>
         <input class="form-control" type="text"
