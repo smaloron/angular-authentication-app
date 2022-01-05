@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { User, UserDataInterface, UserInterface } from '../models/user.model';
 import { NotificationService } from './notification.service';
 
@@ -22,7 +23,8 @@ export class AuthenticationService {
     { login: 'Alan', userName: 'Alan Turing', password: '456' },
   ]
 
-  constructor(private notification: NotificationService) {
+  constructor(private notification: NotificationService,
+              private router: Router) {
     this.user = new User();
   }
   
@@ -45,5 +47,7 @@ export class AuthenticationService {
 
   logout(): void {
     this.user = new User();
+    this.notification.setMessage('Vous êtes déconnecté');
+    this.router.navigate(['/home'])
   }
 }
