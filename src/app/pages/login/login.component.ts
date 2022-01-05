@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CredentialInterface } from 'src/app/services/authentication.service';
+import { AuthenticationService, CredentialInterface } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,17 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor() { }
+  constructor(private security: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  validateForm(): void {
+    if (this.security.authenticate(this.userInput)) {
+      console.log('ok');
+    } else {
+      console.log('KO');
+    }
   }
 
 }
