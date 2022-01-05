@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User, UserDataInterface, UserInterface } from '../models/user.model';
+import { NotificationService } from './notification.service';
 
 export interface CredentialInterface {
   login: string,
@@ -21,7 +22,7 @@ export class AuthenticationService {
     { login: 'Alan', userName: 'Alan Turing', password: '456' },
   ]
 
-  constructor() {
+  constructor(private notification: NotificationService) {
     this.user = new User();
   }
   
@@ -35,6 +36,7 @@ export class AuthenticationService {
     const isAuthenticated = user != undefined;
     
     if (isAuthenticated) {
+      this.notification.setMessage('Vous êtes connecté');
       this.user = new User(user);
     }
 
