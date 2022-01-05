@@ -3,8 +3,11 @@
     <div class="col-md-8 p-4">
       <p class="navbar-text me-2">{{ security.user.greet() }}</p>
       <nav class="mb-4 d-flex justify-content-end">
-        <button class="btn btn-primary btn-sm" routerLink="/login">
+        <button class="btn btn-primary btn-sm" routerLink="/login" *ngIf="! security.user.isAuthenticated">
           Connexion
+        </button>
+        <button class="btn btn-primary btn-sm" *ngIf="security.user.isAuthenticated" (click)="security.logout()">
+          Déconnexion
         </button>
       </nav>
       <router-outlet></router-outlet>

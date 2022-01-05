@@ -30,4 +30,8 @@ export class AuthenticationService {
 
     return isAuthenticated;
   }
+
+  logout(): void {
+    this.user = new User();
+  }
 }
