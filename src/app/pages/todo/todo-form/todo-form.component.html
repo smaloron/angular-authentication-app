@@ -1,1 +1,13 @@
-<p>todo-form works!</p>
+<div class="mt-3">
+    <div class="mb-2">
+        <label class="form-label">Tâche</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="task.taskName">
+    </div>
+    <div class="mb-2 form-check">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="task.done">
+        <label class="form-check-label">Terminée</label>
+    </div>
+
+    <button class="btn btn-primary" (click)="validateForm()">Valider</button>
+</div>
