@@ -1,5 +1,17 @@
 
-<app-select-user label="Recherche" [(user)]="taskService.search"></app-select-user>
+<div class="mb-3 row">
+    <app-select-user label="Recherche" 
+        [(user)]="taskService.search"
+        firstOptionLabel="Choisissez un utilisateur"
+        (change)="taskService.filterTask()">
+    </app-select-user>
+    <!--
+    <button class="btn btn-primary btn-sm" 
+        (click)="taskService.filterTask()">
+        Filtrer
+    </button>
+    -->
+</div>
 
 <button class="btn btn-primary mt-3 mb-2" 
         routerLink="/todo-form">
@@ -16,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let task of taskService.taskList">
+        <tr *ngFor="let task of taskService.filteredTaskList">
             <td>
                 <input type="checkbox" 
                 [checked]="task.done">

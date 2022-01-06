@@ -11,9 +11,13 @@ export class TodoService {
     new Todo({ taskName: 'Apprendre le polonais', done: false, id: 2, user: 'Alan' }),
   ];
 
+  filteredTaskList: Todo[] = [];
+
   search: string = '';
 
-  constructor() { }
+  constructor() {
+    this.filterTask();
+  }
 
   getNewTodo(): Todo {
     return new Todo();
@@ -34,5 +38,15 @@ export class TodoService {
   getOneById(id: number): Todo{
     const task = this.taskList.find(item => item.id == id);
     return task || new Todo();
+  }
+
+  filterTask(): void {
+    if (this.search) {
+      this.filteredTaskList = this.taskList.filter(
+        item => item.user == this.search
+      );
+    } else {
+      this.filteredTaskList = this.taskList;
+    }
   }
 }

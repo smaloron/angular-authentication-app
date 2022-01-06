@@ -2,6 +2,9 @@
     <label class="form-label">{{ label }}</label>
     <select class="form-select" [(ngModel)]="user"
     (change)="onUserSelect()">
+        <option *ngIf="firstOptionLabel != ''" value="">
+            {{ firstOptionLabel }}
+        </option>
         <option *ngFor="let user of security.userList" [value]="user.login">
             {{ user.userName }}
         </option>
