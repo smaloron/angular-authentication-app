@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Statut</th>
+            <th>Tâche</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of taskService.taskList">
+            <td>
+                <input type="checkbox" 
+                [checked]="task.done">
+            </td>
+            <td>
+                {{ task.taskName}}
+            </td>
+        </tr>
+    </tbody>
+</table>
