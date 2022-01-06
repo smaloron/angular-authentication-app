@@ -11,6 +11,7 @@ import { SecureComponent } from './pages/secure/secure.component';
 import { TodoListComponent } from './pages/todo/todo-list/todo-list.component';
 import { TodoFormComponent } from './pages/todo/todo-form/todo-form.component';
 import { SelectUserComponent } from './pages/todo/select-user/select-user.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SelectUserComponent } from './pages/todo/select-user/select-user.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
