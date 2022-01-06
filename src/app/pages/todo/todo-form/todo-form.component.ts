@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class TodoFormComponent implements OnInit {
 
   constructor(private taskService: TodoService,
     private router: Router,
-    private currentRoute: ActivatedRoute) {
+    private currentRoute: ActivatedRoute,
+    public security: AuthenticationService) {
     this.task = this.taskService.getNewTodo();
 
     currentRoute.params.subscribe(params => {

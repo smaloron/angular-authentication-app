@@ -7,8 +7,8 @@ import { Todo } from '../models/todo.model';
 export class TodoService {
 
   taskList: Todo[] = [
-    new Todo({ taskName: 'Faire le ménage', done: false, id: 1 }),
-    new Todo({ taskName: 'Apprendre le polonais', done: false, id: 2 }),
+    new Todo({ taskName: 'Faire le ménage', done: false, id: 1, user: 'Ada' }),
+    new Todo({ taskName: 'Apprendre le polonais', done: false, id: 2, user: 'Alan' }),
   ];
 
   constructor() { }
