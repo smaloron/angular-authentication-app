@@ -7,8 +7,8 @@ import { Todo } from '../models/todo.model';
 export class TodoService {
 
   taskList: Todo[] = [
-    new Todo({ taskName: 'Faire le ménage', done: false }),
-    new Todo({ taskName: 'Apprendre le polonais', done: false }),
+    new Todo({ taskName: 'Faire le ménage', done: false, id: 1 }),
+    new Todo({ taskName: 'Apprendre le polonais', done: false, id: 2 }),
   ];
 
   constructor() { }
@@ -19,5 +19,10 @@ export class TodoService {
 
   addTask(data: Todo): void {
     this.taskList.push(data);
+  }
+
+  deleteTask(id: number | undefined): void {
+    const index = this.taskList.findIndex(item => item.id == id);
+    this.taskList.splice(index, 1);
   }
 }

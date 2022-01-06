@@ -19,6 +19,10 @@
             <td>
                 {{ task.taskName}}
             </td>
+            <td>
+                <button class="btn btn-danger btn-sm"
+                (click)="taskService.deleteTask(task.id)">X</button>
+            </td>
         </tr>
     </tbody>
 </table>
