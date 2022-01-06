@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'secure', component: SecureComponent, canActivate: [AuthGuard] },
   { path: 'todo-list', component: TodoListComponent },
   { path: 'todo-form', component: TodoFormComponent },
+  { path: 'todo-form/:id', component: TodoFormComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

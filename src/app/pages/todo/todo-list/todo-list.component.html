@@ -8,6 +8,7 @@
             <th>Statut</th>
             <th>Tâche</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,11 @@
             <td>
                 <button class="btn btn-danger btn-sm"
                 (click)="taskService.deleteTask(task.id)">X</button>
+            </td>
+            <td>
+                <button class="btn btn-warning btn-sm" routerLink="/todo-form/{{task.id}}">
+                    modifier
+                </button>
             </td>
         </tr>
     </tbody>

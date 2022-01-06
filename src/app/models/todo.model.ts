@@ -5,7 +5,7 @@ export interface TodoDTOInterface  {
 }
 
 
-export class Todo {
+export class Todo implements TodoDTOInterface{
     id: number | undefined;
     taskName: string = '';
     done: boolean = false;
