@@ -10,6 +10,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { SecureComponent } from './pages/secure/secure.component';
 import { TodoListComponent } from './pages/todo/todo-list/todo-list.component';
 import { TodoFormComponent } from './pages/todo/todo-form/todo-form.component';
+import { SelectUserComponent } from './pages/todo/select-user/select-user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TodoFormComponent } from './pages/todo/todo-form/todo-form.component';
     LoginComponent,
     SecureComponent,
     TodoListComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    SelectUserComponent
   ],
   imports: [
     BrowserModule,

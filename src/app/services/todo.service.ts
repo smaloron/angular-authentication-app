@@ -11,6 +11,8 @@ export class TodoService {
     new Todo({ taskName: 'Apprendre le polonais', done: false, id: 2, user: 'Alan' }),
   ];
 
+  search: string = '';
+
   constructor() { }
 
   getNewTodo(): Todo {
