@@ -36,13 +36,15 @@
             <th>Photo</th>
             <th>Prénom</th>
             <th>Nom</th>
+            <th>Adresse</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of userList">
-            <td><img [src]="user.picture.thumbnail"></td>
-            <td>{{ user.name.first}}</td>
-            <td>{{ user.name.last }}</td>
+        <tr *ngFor="let user of (response | async)">
+            <td><img [src]="user.picture"></td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.address }} </td>
         </tr>
     </tbody>
 </table>
