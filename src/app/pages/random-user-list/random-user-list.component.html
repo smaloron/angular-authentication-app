@@ -1,1 +1,48 @@
-<p>random-user-list works!</p>
+<div class="mt-3 mb-3">
+    <h3>Filtre</h3>
+    <div class="row">
+        <div class="mb-2 col">
+            <label class="form-label">Nationalité</label>
+            <select class="form-select" [(ngModel)]="search.nat">
+                <option value='fr'>Française</option>
+                <option value='de'>Allemande</option>
+                <option value='dk'>Danoise</option>
+                <option value='es'>Espagnole</option>
+                <option value='uk'>Anglaise</option>
+            </select>
+        </div>
+        <div class="mb-2 col">
+            <label class="form-label">Genre</label>
+            <select class="form-select" [(ngModel)]="search.gender">
+                <option value=''>Tous les genres</option>
+                <option value='female'>Féminin</option>
+                <option value='male'>Masculin</option>
+            </select>
+        </div>
+        <div class="mb-2 col">
+            <label class="form-label">Nombre</label>
+            <input type="number" class="form-control" [(ngModel)]="search.results" value="10">
+        </div>
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="loadUsers()">Filtrer</button>
+</div>
+
+{{ search | json }}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td><img [src]="user.picture.thumbnail"></td>
+            <td>{{ user.name.first}}</td>
+            <td>{{ user.name.last }}</td>
+        </tr>
+    </tbody>
+</table>
