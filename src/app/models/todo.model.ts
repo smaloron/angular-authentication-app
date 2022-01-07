@@ -18,8 +18,6 @@ export class Todo implements TodoDTOInterface{
             this.done = data.done;
             this.user = data.user;
             this.id = data.id || new Date().getTime();
-        } else {
-            this.id = new Date().getTime();
-        }  
+        }
     }
 }
