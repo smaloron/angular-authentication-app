@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'secure', component: SecureComponent, canActivate: [AuthGuard] },
-  { path: 'todo-list', component: TodoListComponent },
-  { path: 'todo-form', component: TodoFormComponent },
-  { path: 'todo-form/:id', component: TodoFormComponent },
+  { path: 'todo-list', component: TodoListComponent, },
+{ path: 'todo-form', component: TodoFormComponent, canActivate: [AuthGuard] },
+  { path: 'todo-form/:id', component: TodoFormComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Todo } from '../models/todo.model';
+import { AuthenticationService } from './authentication.service';
+import { NotificationService } from './notification.service';
 
 const TODO_KEY = 'todos';
 
@@ -18,7 +20,9 @@ export class TodoService {
 
   search: string = '';
 
-  constructor(private storage: LocalStorageService) {
+  constructor(private storage: LocalStorageService,
+              private security: AuthenticationService,
+              private notification: NotificationService) {
     this.loadFromStorage();
     this.filterTask();
   }
@@ -49,8 +53,17 @@ export class TodoService {
 
   deleteTask(id: number | undefined): void {
     const index = this.taskList.findIndex(item => item.id == id);
-    this.taskList.splice(index, 1);
-    this.persist();
+    if (index >= 0) {
+      const task = this.taskList[index];
+      if (task.user == this.security.user.login) {
+        this.taskList.splice(index, 1);
+        this.persist();
+      } else {
+        this.notification.setMessage(`Vous n'avez pas les droits pour supprimer cette tâche`);
+      }
+      
+    }
+    
   }
 
   getOneById(id: number): Todo{
