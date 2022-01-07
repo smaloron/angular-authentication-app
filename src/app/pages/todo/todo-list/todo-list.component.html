@@ -44,7 +44,7 @@
                 (click)="taskService.deleteTask(task.id)">X</button>
             </td>
             <td>
-                <button class="btn btn-warning btn-sm" routerLink="/todo-form/{{task.id}}">
+                <button class="btn btn-warning btn-sm" (click)="editTask(task)">
                     modifier
                 </button>
             </td>
