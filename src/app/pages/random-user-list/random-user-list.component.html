@@ -3,7 +3,7 @@
     <div class="row">
         <div class="mb-2 col">
             <label class="form-label">Nationalité</label>
-            <select class="form-select" [(ngModel)]="search.nat">
+            <select class="form-select" [(ngModel)]="randomUser.search.nat">
                 <option value='fr'>Française</option>
                 <option value='de'>Allemande</option>
                 <option value='dk'>Danoise</option>
@@ -13,7 +13,7 @@
         </div>
         <div class="mb-2 col">
             <label class="form-label">Genre</label>
-            <select class="form-select" [(ngModel)]="search.gender">
+            <select class="form-select" [(ngModel)]="randomUser.search.gender">
                 <option value=''>Tous les genres</option>
                 <option value='female'>Féminin</option>
                 <option value='male'>Masculin</option>
@@ -21,14 +21,12 @@
         </div>
         <div class="mb-2 col">
             <label class="form-label">Nombre</label>
-            <input type="number" class="form-control" [(ngModel)]="search.results" value="10">
+            <input type="number" class="form-control" [(ngModel)]="randomUser.search.results" value="10">
         </div>
     </div>
 
-    <button class="btn btn-primary w-100" (click)="loadUsers()">Filtrer</button>
+    <button class="btn btn-primary w-100" (click)="randomUser.loadUsers()">Filtrer</button>
 </div>
-
-{{ search | json }}
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -40,7 +38,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of (response | async)">
+        <tr *ngFor="let user of (randomUser.userList| async)">
             <td><img [src]="user.picture"></td>
             <td>{{ user.firstName }}</td>
             <td>{{ user.name }}</td>
