@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RandomUserListComponent } from './pages/random-user-list/random-user-list.component';
 import { SecureComponent } from './pages/secure/secure.component';
 import { TodoFormComponent } from './pages/todo/todo-form/todo-form.component';
 import { TodoListComponent } from './pages/todo/todo-list/todo-list.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'todo-list', component: TodoListComponent, },
 { path: 'todo-form', component: TodoFormComponent, canActivate: [AuthGuard] },
   { path: 'todo-form/:id', component: TodoFormComponent, canActivate: [AuthGuard] },
+  { path: 'user-list', component: RandomUserListComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
